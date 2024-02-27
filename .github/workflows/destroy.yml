@@ -1,0 +1,22 @@
+name: Destroy EKS Cluster
+
+on:
+  workflow_dispatch:  
+jobs:
+  destroy-cluster:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2.0.2
+      with:
+        cli_config_credentials_token: ${{ secrets.TFC_API_TOKEN }}
+      
+    - name: Terraform Init
+      run: terraform init
+      
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve
