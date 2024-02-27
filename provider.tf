@@ -21,7 +21,7 @@ backend "remote" {
 		organization = "dbayraktar-lab"
 
 		workspaces {
-			name = "CloudQuickLabs"
+			name = "AWSEKS"
 		}
 	}
 }
